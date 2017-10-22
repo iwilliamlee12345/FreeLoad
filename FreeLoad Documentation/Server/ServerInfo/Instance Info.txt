@@ -1,0 +1,14 @@
+UBUNTU
+
+AMI: Ubuntu Server 16.04 LTS (HVM), SSD Volume Type - ami-6e1a0117
+
+Instance ID: 
+
+Public DNS (IPv4): ec2-52-25-133-35.us-west-2.compute.amazonaws.com
+
+Host Name: ubuntu@ec2-52-25-133-35.us-west-2.compute.amazonaws.com
+
+
+phpmyadmin: https://ec2-52-25-133-35.us-west-2.compute.amazonaws.com/phpmyadmin
+
+

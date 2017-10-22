@@ -1,0 +1,18 @@
+//Example: Merge Branch with main branch
+
+//Go to branch you want to merge with
+$git checkout master
+
+//Get all the updates the branch from github
+$git pull origin master 
+
+//See status of merged
+$git branch --merged
+
+//Merge branch onto master
+$git merge New-Branch-Features
+
+//Push the merged branch onto github
+$git push origin master
+
+

@@ -1,0 +1,18 @@
+//If people change the branch you are working on, you will not be able to push onto GitHub
+
+$git push origin master
+
+! [rejected]
+error: failed to push some refs to <URL>
+
+//Before pushing onto branch, pull from Github to see if anybody made any changes
+
+//Will pull all other updates
+$git pull origin master
+
+//merge to the latest updates
+$git merge master
+
+//Finally push onto master
+$git push origin master
+

@@ -1,0 +1,12 @@
+//When first starting your local repository
+
+<in Local repository>
+(initiates the git repository)
+$ git init 
+
+(links directory with github repository)
+$ git remote add origin <URL>
+
+(pull everything from github reposity to your repository) 
+$ git pull origin master
+

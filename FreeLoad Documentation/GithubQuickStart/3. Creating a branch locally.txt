@@ -1,0 +1,12 @@
+//Create a branch locally to add features
+
+//Create new branch called New-Branch-Features
+$git branch New-Branch-Features
+
+//Checkout the new branch and start working on it
+$git checkout Not-Master-Branch
+
+//Once complete, the new branch will be created
+//Push this branch onto Github
+$git push origin Not-Master-Branch
+

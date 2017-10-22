@@ -1,0 +1,10 @@
+//Delete branch on remote repository
+
+//First delete branch on local repository
+$git branch -d New-Branch-Features
+
+//Show all branches to make sure it is deleted
+$git branch -a
+
+//Now delete it on the remote repository
+$git push origin --delete New-Branch-Features
