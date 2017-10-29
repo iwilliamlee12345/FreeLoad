@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect("ec2-52-25-133-35.us-west-2.compute.amazonaws.com", "root", "Password", "FreeLoad");
+    $con = mysqli_connect("https://ec2-52-25-133-35.us-west-2.compute.amazonaws.com", "root", "Password", "FreeLoad");
     
     $username = $_POST["username"];
     $password = $_POST["password"];
