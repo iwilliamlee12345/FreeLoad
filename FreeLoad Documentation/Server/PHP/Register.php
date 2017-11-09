@@ -1,5 +1,5 @@
 <?php
-
+    //HELLO SAM
     //Using Netbeans IDE
    $servername = "ec2-52-25-133-35.us-west-2.compute.amazonaws.com";
    $server_username = "username";
@@ -13,22 +13,22 @@
         die("Connection failed: " . $conn->connect_error);
     }
  
-
-    // set parameters and execute
-    $name = "William";
-    $username = "WilliamU";
-    $age = 21;
-    $password = "WilliamP";
     
-    //$name = $_POST["name"];
-    //$age = $_POST["age"];
-    //$username = $_POST["username"];
-    //$password = $_POST["password"];
-    $stmt = $conn->prepare("INSERT INTO user (name, username, age, password) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("SSIS", $name, $username, $age, $password);
 
-
-    $stmt->execute();
+    
+    $name = $_POST["name"];
+    $age = $_POST["age"];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+     
+    //$stmt = $conn->prepare("INSERT INTO user (name, username, age, password) VALUES (?, ?, ?, ?)");
+    //$stmt->bind_param("ssis", $name, $username, $age, $password);
+    //$stmt->execute();
+    $statement = mysqli_prepare($conn, "INSERT INTO user (name, username, age, password) VALUES (?, ?, ?, ?)");
+    mysqli_stmt_bind_param($statement, "ssis", $name, $username, $age, $password);
+    mysqli_stmt_execute($statement);
+    
+    
     
     $stmt->close();
     $conn->close();
@@ -36,6 +36,6 @@
     $response = array();
     $response["success"] = true;  
     
-    print_r(json_encode($response));
+    echo json_encode($response);
 
 ?>
