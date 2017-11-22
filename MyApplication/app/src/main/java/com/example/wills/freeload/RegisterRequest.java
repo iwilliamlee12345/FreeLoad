@@ -16,7 +16,7 @@ public class RegisterRequest extends StringRequest{
 
     private static final String TAG = "RegisterRequest";
 
-    public static final String REGISTER_REQUEST_URL = "https://ec2-52-25-133-35.us-west-2.compute.amazonaws.com/Register.php";
+    public static final String REGISTER_REQUEST_URL = "https://ec2-52-25-133-35.us-west-2.compute.amazonaws.com/Register2.php";
     private Map<String, String> params;
 
     public RegisterRequest(String name, String username, int age, String password, Response.Listener<String> listener) {

@@ -58,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
+                            Log.d(TAG, jsonResponse.toString());
                             if (success) {
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 RegisterActivity.this.startActivity(intent);
@@ -71,6 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
                     }
 
                 };
@@ -80,44 +82,6 @@ public class RegisterActivity extends AppCompatActivity {
                 queue.add(registerRequest);
                 Log.d(TAG, "Inserting into Queue");
                 new NukeSSLCerts().nuke(); //Ignores everything SSL related
-                final String testURL = "https://ec2-52-25-133-35.us-west-2.compute.amazonaws.com/test.php";
-                StringRequest postReqest = new StringRequest(Request.Method.POST, testURL, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.d(TAG, response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    public void onErrorResponse(VolleyError error) {
-                        if (error == null || error.networkResponse == null) {
-                            Log.d(TAG, "No error message");
-                        }
-
-                        String body;
-                        //get status code here
-                        final String statusCode = String.valueOf(error.networkResponse.statusCode);
-                        //get response body and parse with appropriate encoding
-                        try {
-                            body = new String(error.networkResponse.data,"UTF-8");
-                            Log.d(TAG, body);
-                        } catch (UnsupportedEncodingException e) {
-                            // exceptionm
-                        }
-                    }
-                }
-                ) {
-                    @Override
-                    protected Map<String, String> getParams() {
-                        Map<String, String> params = new HashMap<String, String>();
-                        params.put("name", "Alif");
-                        params.put("age", 21+"");
-                        Log.d(TAG, "returnning test params");
-                        return params;
-                    }
-                };
-                //queue.add(postReqest);
-
-
             }
         });
     }

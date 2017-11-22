@@ -1,6 +1,7 @@
 <?php
     //HELLO SAM
     //Using Netbeans IDE
+
    $servername = "ec2-52-25-133-35.us-west-2.compute.amazonaws.com";
    $server_username = "username";
    $server_password = "password";
@@ -14,25 +15,27 @@
     }
  
     
-
-    
     $name = $_POST["name"];
     $age = $_POST["age"];
     $username = $_POST["username"];
     $password = $_POST["password"];
      
-    //$stmt = $conn->prepare("INSERT INTO user (name, username, age, password) VALUES (?, ?, ?, ?)");
-    //$stmt->bind_param("ssis", $name, $username, $age, $password);
-    //$stmt->execute();
-    $statement = mysqli_prepare($conn, "INSERT INTO user (name, username, age, password) VALUES (?, ?, ?, ?)");
-    mysqli_stmt_bind_param($statement, "ssis", $name, $username, $age, $password);
-    mysqli_stmt_execute($statement);
+    //$statement = mysqli_prepare($conn, "INSERT INTO user (name, username, age, password) VALUES (?, ?, ?, ?)");
+    //mysqli_stmt_bind_param($statement, "ssis", $name, $username, $age, $password);
+    //mysqli_stmt_execute($statement);
     
     
+    function registerUser() {       
+        global $conn, $name, $age, $username, $password;
+        $statement = mysqli_prepare($conn, "INSERT INTO user (name, username, age, password) VALUES (?, ?, ?, ?)");
+        mysqli_stmt_bind_param($statement, "ssis", $name, $username, $age, $password);
+        mysqli_stmt_execute($statement);
+        
+        //mysqli_stmt_close($statement); 
+    }
     
-    $stmt->close();
-    $conn->close();
-	
+    registerUser();
+    
     $response = array();
     $response["success"] = true;  
     
